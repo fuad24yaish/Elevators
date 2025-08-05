@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Technical Compliance - Detailed Comparison</title>
+<style>
+    body { font-family: Arial, sans-serif; background: #f7f9fc; margin: 20px; color: #333; }
+    h1, h2 { color: #005b96; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    th, td { padding: 10px; border: 1px solid #ccc; text-align: center; }
+    th { background: #e8f1fa; }
+    .section-header { background: #dff0ff; font-weight: bold; text-align: left; padding-left: 10px; }
+    .match { background-color: #c8e6c9; } /* green */
+    .nomatch { background-color: #ffcdd2; } /* red */
+    .unknown { background-color: #e0e0e0; } /* gray */
+    .legend { margin-bottom: 20px; }
+    .legend span { display: inline-block; padding: 5px 10px; margin-right: 10px; border-radius: 4px; color: #000; font-size: 14px; }
+    .lg-green { background: #c8e6c9; }
+    .lg-red { background: #ffcdd2; }
+    .lg-gray { background: #e0e0e0; }
+</style>
+</head>
+<body>
+
+<h1>⚙️ Technical Compliance - Detailed Comparison</h1>
+
+<!-- Legend -->
+<div class="legend">
+    <span class="lg-green">✅ Match</span>
+    <span class="lg-red">❌ Does Not Match</span>
+    <span class="lg-gray">❔ Not Clear / N/A</span>
+</div>
+
+<!-- Table -->
+<table>
+<thead>
+<tr>
+    <th>Specification</th>
+    <th>Requested Value</th>
+    <th>Vendor A</th>
+    <th>Vendor B</th>
+    <th>Vendor C</th>
+</tr>
+</thead>
+<tbody>
+
+<!-- General Information -->
+<tr class="section-header"><td colspan="5">📋 General Information</td></tr>
+<tr><td>Vendor Name</td><td>-</td><td class="match">LiftCo</td><td class="match">ElevateX</td><td class="match">SkyLift</td></tr>
+<tr><td>Model</td><td>-</td><td class="match">LC-900</td><td class="match">EX-500</td><td class="match">SL-800</td></tr>
+<tr><td>Country of Manufacture</td><td>Japan</td><td class="match">Japan</td><td class="nomatch">China</td><td class="unknown">N/A</td></tr>
+<tr><td>Standards Compliance</td><td>EN 81, ISO 9001</td><td class="match">EN 81, ISO 9001</td><td class="match">EN 81, ISO 9001</td><td class="nomatch">Only EN 81</td></tr>
+<tr><td>Warranty Period (Years)</td><td>5</td><td class="match">5</td><td class="nomatch">3</td><td class="match">5</td></tr>
+
+<!-- Performance Specifications -->
+<tr class="section-header"><td colspan="5">🚀 Performance Specifications</td></tr>
+<tr><td>Load Capacity (kg)</td><td>1000</td><td class="match">1000</td><td class="nomatch">800</td><td class="match">1000</td></tr>
+<tr><td>Speed (m/s)</td><td>1.6</td><td class="match">1.6</td><td class="match">1.6</td><td class="nomatch">1.0</td></tr>
+<tr><td>Travel Height (m)</td><td>50</td><td class="match">50</td><td class="nomatch">45</td><td class="match">50</td></tr>
+<tr><td>Number of Stops</td><td>15</td><td class="match">15</td><td class="match">15</td><td class="nomatch">12</td></tr>
+<tr><td>Drive Type</td><td>Gearless</td><td class="match">Gearless</td><td class="match">Gearless</td><td class="nomatch">Geared</td></tr>
+
+<!-- Car & Door Dimensions -->
+<tr class="section-header"><td colspan="5">🚪 Car & Door Dimensions</td></tr>
+<tr><td>Car Inside Width (mm)</td><td>1600</td><td class="match">1600</td><td class="match">1600</td><td class="nomatch">1500</td></tr>
+<tr><td>Car Inside Depth (mm)</td><td>1500</td><td class="match">1500</td><td class="nomatch">1400</td><td class="match">1500</td></tr>
+<tr><td>Car Inside Height (mm)</td><td>2300</td><td class="match">2300</td><td class="match">2300</td><td class="nomatch">2200</td></tr>
+<tr><td>Door Opening Width (mm)</td><td>900</td><td class="match">900</td><td class="nomatch">800</td><td class="match">900</td></tr>
+<tr><td>Door Opening Height (mm)</td><td>2100</td><td class="match">2100</td><td class="match">2100</td><td class="match">2100</td></tr>
+<tr><td>Door Type</td><td>Center Opening</td><td class="match">Center Opening</td><td class="nomatch">Side Opening</td><td class="match">Center Opening</td></tr>
+
+<!-- Signalization -->
+<tr class="section-header"><td colspan="5">🔔 Signalization</td></tr>
+<tr><td>Car Operating Panel Type</td><td>Touch Panel</td><td class="match">Touch Panel</td><td class="match">Touch Panel</td><td class="nomatch">Push Button</td></tr>
+<tr><td>Landing Operating Panel Type</td><td>Touch Panel</td><td class="match">Touch Panel</td><td class="nomatch">Push Button</td><td class="match">Touch Panel</td></tr>
+<tr><td>Voice Announcements</td><td>Required</td><td class="match">Yes</td><td class="nomatch">No</td><td class="match">Yes</td></tr>
+<tr><td>Braille Buttons</td><td>Required</td><td class="match">Yes</td><td class="match">Yes</td><td class="match">Yes</td></tr>
+<tr><td>Digital Display Type</td><td>LCD</td><td class="match">LCD</td><td class="match">LCD</td><td class="nomatch">LED</td></tr>
+<tr><td>Position Indicators</td><td>Car & Landing</td><td class="match">Both</td><td class="match">Both</td><td class="nomatch">Car Only</td></tr>
+
+<!-- Hoisting Equipment -->
+<tr class="section-header"><td colspan="5">🏗️ Hoisting Equipment</td></tr>
+<tr><td>Motor Type</td><td>PM Synchronous</td><td class="match">PM Synchronous</td><td class="match">PM Synchronous</td><td class="nomatch">AC Induction</td></tr>
+<tr><td>Motor Power (kW)</td><td>15</td><td class="match">15</td><td class="nomatch">12</td><td class="match">15</td></tr>
+<tr><td>Roping Type</td><td>2:1</td><td class="match">2:1</td><td class="match">2:1</td><td class="nomatch">1:1</td></tr>
+<tr><td>Counterweight Type</td><td>Steel Frame</td><td class="match">Steel Frame</td><td class="nomatch">Concrete</td><td class="match">Steel Frame</td></tr>
+<tr><td>Suspension Rope Type</td><td>Steel</td><td class="match">Steel</td><td class="match">Steel</td><td class="nomatch">Synthetic</td></tr>
+
+<!-- Safety Equipment -->
+<tr class="section-header"><td colspan="5">🛡️ Safety Equipment</td></tr>
+<tr><td>Overload Protection</td><td>Required</td><td class="match">Yes</td><td class="match">Yes</td><td class="match">Yes</td></tr>
+<tr><td>Emergency Alarm</td><td>Required</td><td class="match">Yes</td><td class="nomatch">No</td><td class="match">Yes</td></tr>
+<tr><td>Emergency Light</td><td>Required</td><td class="match">Yes</td><td class="match">Yes</td><td class="match">Yes</td></tr>
+<tr><td>Automatic Rescue Device</td><td>Required</td><td class="match">Yes</td><td class="match">Yes</td><td class="nomatch">No</td></tr>
+<tr><td>Door Safety Edge</td><td>Light Curtain</td><td class="match">Light Curtain</td><td class="nomatch">Mechanical Edge</td><td class="match">Light Curtain</td></tr>
+<tr><td>Governor & Safety Gear</td><td>Standard Type A</td><td class="match">Type A</td><td class="match">Type A</td><td class="nomatch">Type B</td></tr>
+<tr><td>Fire Emergency Return</td><td>Required</td><td class="match">Yes</td><td class="match">Yes</td><td class="nomatch">No</td></tr>
+
+<!-- Mechanical Components -->
+<tr class="section-header"><td colspan="5">⚙️ Mechanical Components</td></tr>
+<tr><td>Guide Rail Type</td><td>T-Type</td><td class="match">T-Type</td><td class="match">T-Type</td><td class="nomatch">H-Type</td></tr>
+<tr><td>Buffer Type</td><td>Oil</td><td class="match">Oil</td><td class="nomatch">Polyurethane</td><td class="match">Oil</td></tr>
+<tr><td>Machine Room</td><td>MRL</td><td class="match">MRL</td><td class="match">MRL</td><td class="nomatch">MR</td></tr>
+<tr><td>Ventilation System</td><td>Required</td><td class="match">Yes</td><td class="nomatch">No</td><td class="match">Yes</td></tr>
+<tr><td>Noise Level (dB)</td><td>≤55</td><td class="match">54</td><td class="nomatch">60</td><td class="match">55</td></tr>
+
+<!-- Energy & Environmental -->
+<tr class="section-header"><td colspan="5">🌱 Energy & Environmental</td></tr>
+<tr><td>Energy Efficiency Class</td><td>A</td><td class="match">A</td><td class="nomatch">B</td><td class="match">A</td></tr>
+<tr><td>Regenerative Drive</td><td>Required</td><td class="match">Yes</td><td class="nomatch">No</td><td class="match">Yes</td></tr>
+<tr><td>LED Lighting in Car</td><td>Required</td><td class="match">Yes</td><td class="match">Yes</td><td class="match">Yes</td></tr>
+<tr><td>Standby Power (W)</td><td>≤100</td><td class="match">90</td><td class="nomatch">120</td><td class="match">95</td></tr>
+
+</tbody>
+</table>
+
+</body>
+</html>

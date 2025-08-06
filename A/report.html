@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tender Evaluation Report - Elevators & Escalators</title>
+<style>
+    body { font-family: Arial, sans-serif; background: #f7f9fc; color: #333; margin: 20px; }
+    h1 { text-align: center; color: #005b96; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
+    th, td { padding: 10px; border: 1px solid #ccc; text-align: center; }
+    th { background: #e8f1fa; }
+    .category { font-weight: bold; font-size: 18px; cursor: pointer; background: #dff0ff; }
+    .subcategory { text-align: left; padding-left: 40px; background: #f9fcff; }
+    .subdetail { text-align: left; padding-left: 60px; font-size: 13px; background: #ffffff; }
+    .weight { color: #888; font-size: 12px; }
+    .score-bar { height: 15px; border-radius: 4px; }
+    .vendor1 { background-color: #4caf50; }
+    .vendor2 { background-color: #2196f3; }
+    .vendor3 { background-color: #ff9800; }
+    .icon { font-size: 28px; margin-right: 8px; }
+    .hidden { display: none; }
+ /* Highlight colors */
+    .lowest { background-color: #ffcccc !important; }
+    .highest { background-color: #ccffcc !important; }
+    .middle { background-color: #e0e0e0 !important; }	
+
+    .legend { margin: 15px auto; width: fit-content; }
+    .legend span { display: inline-block; padding: 5px 10px; margin-right: 10px;  border-radius: 4px; font-weight: bold; }
+	
+	.toggle-buttons { text-align: center; margin: 15px 0; }
+    .toggle-buttons button { padding: 8px 15px; margin: 5px; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; }
+    .show-all { background-color: #4caf50; color: white; }
+    .hide-all { background-color: #f44336; color: white; }
+	
+</style>
+<script>
+function toggleSection(id) {
+    var section = document.getElementById(id);
+    section.classList.toggle("hidden");
+}
+
+function showAll() {
+    document.querySelectorAll("tr[id]").forEach(el => el.classList.remove("hidden"));
+    document.getElementById("hideAllBtn").style.display = "inline-block";
+	document.getElementById("showAllBtn").style.display = "none";
+}
+
+function hideAll() {
+    document.querySelectorAll("tr[id]").forEach(el => el.classList.add("hidden"));
+    document.getElementById("hideAllBtn").style.display = "none";
+	document.getElementById("showAllBtn").style.display = "inline-block";
+}
+
+function highlightScores() {
+    // For each table in expandable sections
+    document.querySelectorAll("tbody table").forEach(tbl => {
+        const rows = tbl.querySelectorAll("tr.subcategory");
+        rows.forEach(row => {
+            // Get the 3 vendor cells (3rd, 4th, 5th)
+            const vendorCells = Array.from(row.querySelectorAll("td")).slice(2, 5);
+            const values = vendorCells.map(cell => parseFloat(cell.textContent.replace('%','')));
+            const min = Math.min(...values);
+            const max = Math.max(...values);
+            vendorCells.forEach((cell, i) => {
+                if (values[i] === min) {
+                    cell.classList.add("lowest");
+                } else if (values[i] === max) {
+                    cell.classList.add("highest");
+                } else {
+                    cell.classList.add("middle");
+                }
+            });
+        });
+    });
+}
+
+document.addEventListener("DOMContentLoaded", highlightScores);
+</script>
+
+</head>
+<body>
+
+<h1>🚀 Tender Evaluation Report - Elevators & Escalators</h1>
+
+<!-- Legend -->
+<div class="legend"> Color Legend : 
+    <span class="highest">Highest Score</span>
+    <span class="middle">Middle Score</span>
+    <span class="lowest">Lowest Score</span>
+</div>
+
+<!-- Show/Hide All Buttons -->
+<div class="toggle-buttons">
+    <button id="showAllBtn" class="show-all" style="display:none" onclick="showAll()">Show details</button>
+    <button id="hideAllBtn" class="hide-all" onclick="hideAll()">Hide details</button>
+</div>
+
+<table>
+
+<tbody>
+
+<!-- TECHNICAL -->
+<tr onclick="toggleSection('tech')" class="category">
+    <td colspan="5"><span class="icon">⚙️</span>Technical Compliance (30%) ▼</td>
+</tr>
+<tr id="tech" class="">
+    <td colspan="5">
+        <table width="100%">
+			<tr>
+				<th>Aspect</th>
+				<th>Weight (%)</th>
+				<th>Vendor A</th>
+				<th>Vendor B</th>
+				<th>Vendor C</th>
+			</tr>
+            <tr class="subcategory">
+                <td>📏 <a href="TechnicalCompliance.html">Specs Match</a></td><td class="weight">10%</td><td>90%</td><td>75%</td><td>95%</td>
+            </tr>
+            <tr class="subcategory">
+                <td>🔌 <a href="TechnicalCompliance.html">Drive & Control</a></td><td class="weight">10%</td><td>80%</td><td>82%</td><td>90%</td>
+            </tr>
+            <tr class="subcategory">
+                <td>📡 <a href="TechnicalCompliance.html">Smart Features</a></td><td class="weight">10%</td><td>85%</td><td>77%</td><td>92%</td>
+            </tr>
+        </table>
+    </td>
+</tr>
+
+<!-- SAFETY -->
+<tr onclick="toggleSection('safety')" class="category">
+    <td colspan="5"><span class="icon">🛡️</span>Safety & Reliability (20%) ▼</td>
+</tr>
+<tr id="safety" class="">
+    <td colspan="5">
+        <table width="100%">
+			<tr>
+				<th>Aspect</th>
+				<th>Weight (%)</th>
+				<th>Vendor A</th>
+				<th>Vendor B</th>
+				<th>Vendor C</th>
+			</tr>		
+            <tr class="subcategory">
+                <td>⚠️ Safety Devices</td><td class="weight">7%</td><td>92%</td><td>85%</td><td>97%</td>
+            </tr>
+            <tr class="subcategory">
+                <td>🔧 Component Quality</td><td class="weight">7%</td><td>88%</td><td>80%</td><td>95%</td>
+            </tr>
+            <tr class="subcategory">
+                <td>📜 Certification</td><td class="weight">6%</td><td>90%</td><td>82%</td><td>93%</td>
+            </tr>
+        </table>
+    </td>
+</tr>
+
+<!-- VENDOR CAPABILITY -->
+<tr onclick="toggleSection('vendor')" class="category">
+    <td colspan="5"><span class="icon">🏢</span>Vendor Capability (15%) ▼</td>
+</tr>
+<tr id="vendor" class="">
+    <td colspan="5">
+        <table width="100%">
+			<tr>
+				<th>Aspect</th>
+				<th>Weight (%)</th>
+				<th>Vendor A</th>
+				<th>Vendor B</th>
+				<th>Vendor C</th>
+			</tr>		
+            <tr class="subcategory">
+                <td>📋 Experience & References</td><td class="weight">5%</td><td>88%</td><td>80%</td><td>85%</td>
+            </tr>
+            <tr class="subcategory">
+                <td>🏭 Local Service Network</td><td class="weight">5%</td><td>90%</td><td>85%</td><td>82%</td>
+            </tr>
+            <tr class="subcategory">
+                <td>👷 Installer Qualifications</td><td class="weight">5%</td><td>85%</td><td>78%</td><td>88%</td>
+            </tr>
+        </table>
+    </td>
+</tr>
+
+<!-- MAINTENANCE -->
+<tr onclick="toggleSection('maintenance')" class="category">
+    <td colspan="5"><span class="icon">🔧</span>Maintenance & Lifecycle (15%) ▼</td>
+</tr>
+<tr id="maintenance" class="">
+    <td colspan="5">
+        <table width="100%">
+			<tr>
+				<th>Aspect</th>
+				<th>Weight (%)</th>
+				<th>Vendor A</th>
+				<th>Vendor B</th>
+				<th>Vendor C</th>
+			</tr>		
+            <tr class="subcategory">
+                <td>🛠️ Warranty Period</td><td class="weight">5%</td><td>80%</td><td>85%</td><td>90%</td>
+            </tr>
+            <tr class="subcategory">
+                <td>🧾 AMC Terms</td><td class="weight">5%</td><td>82%</td><td>88%</td><td>91%</td>
+            </tr>
+            <tr class="subcategory">
+                <td>📦 Spare Parts Policy</td><td class="weight">5%</td><td>78%</td><td>80%</td><td>88%</td>
+            </tr>
+        </table>
+    </td>
+</tr>
+
+<!-- COMMERCIAL -->
+<tr onclick="toggleSection('commercial')" class="category">
+    <td colspan="5"><span class="icon">💰</span>Commercial Terms (10%) ▼</td>
+</tr>
+<tr id="commercial" class="">
+    <td colspan="5">
+        <table width="100%">
+			<tr>
+				<th>Aspect</th>
+				<th>Weight (%)</th>
+				<th>Vendor A</th>
+				<th>Vendor B</th>
+				<th>Vendor C</th>
+			</tr>		
+            <tr class="subcategory">
+                <td>💲 Price Breakdown</td><td class="weight">5%</td><td>78%</td><td>92%</td><td>80%</td>
+            </tr>
+            <tr class="subcategory">
+                <td>📅 Payment Terms</td><td class="weight">3%</td><td>80%</td><td>85%</td><td>82%</td>
+            </tr>
+            <tr class="subcategory">
+                <td>⏱️ Delivery Time</td><td class="weight">2%</td><td>82%</td><td>88%</td><td>85%</td>
+            </tr>
+        </table>
+    </td>
+</tr>
+
+<!-- SUSTAINABILITY -->
+<tr onclick="toggleSection('sustain')" class="category">
+    <td colspan="5"><span class="icon">🌱</span>Energy Efficiency & Sustainability (10%) ▼</td>
+</tr>
+<tr id="sustain" class="">
+    <td colspan="5">
+        <table width="100%">
+			<tr>
+				<th>Aspect</th>
+				<th>Weight (%)</th>
+				<th>Vendor A</th>
+				<th>Vendor B</th>
+				<th>Vendor C</th>
+			</tr>		
+            <tr class="subcategory">
+                <td>⚡ Energy Consumption</td><td class="weight">4%</td><td>85%</td><td>80%</td><td>88%</td>
+            </tr>
+
+            <tr class="subcategory">
+                <td>♻️ Eco-Friendly Materials</td><td class="weight">3%</td><td>80%</td><td>78%</td><td>85%</td>
+            </tr>
+
+            <tr class="subcategory">
+                <td>🔋 Regenerative Energy</td><td class="weight">3%</td><td>88%</td><td>82%</td><td>90%</td>
+            </tr>
+        </table>
+    </td>
+</tr>
+
+</tbody>
+</table>
+
+<h2>📊 Final Weighted Scores</h2>
+<table>
+<thead>
+<tr>
+    <th>Vendor</th>
+    <th>Final Score (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>Vendor A</td>
+    <td class="middle" style="font-weight:bold;">84%</td>
+</tr>
+<tr>
+    <td>Vendor B</td>
+    <td class="lowest" style="font-weight:bold;">81%</td>
+</tr>
+<tr>
+    <td>Vendor C</td>
+    <td class="highest" style="font-weight:bold;">90%</td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>
